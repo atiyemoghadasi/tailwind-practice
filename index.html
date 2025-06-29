@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="dark" lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard tailwind</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script>
+        document.documentElement.classList.toggle(
+            "dark",
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+    </script>
+</head>
+
+
+<!-- overflow-hidden -->
+
+<body class="bg-gray-100">
+
+    <div id="overlay" class="hidden w-full h-full bg-gray-900 opacity-50 fixed top-0 right-0"></div>
+
+    <!-- sidebar -->
+    <!-- flex -->
+    <div id="sidebar" class="hidden w-64 fixed h-full md:flex">
+        <button id="sidebar-close-icon" class="hidden absolute -left-8 top-4 text-gray-300 z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div class="bg-indigo-700 dark:bg-gray-800 flex flex-col overflow-y-auto flex-grow pt-5">
+            <div class="text-white flex space-x-3 px-4">
+                <span class="text-indigo-100 text-2xl font-bold">Workflow</span>
+                <svg class="h-8 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                    <path
+                        d="m14.96,6.39l-7.52,10.02c-1.22,1.62-3.15,2.59-5.18,2.59h-.26v2h.26c2.65,0,5.19-1.27,6.78-3.39l7.52-10.02c1.22-1.62,3.15-2.59,5.18-2.59h.26v-2h-.26c-2.65,0-5.19,1.27-6.78,3.39Z">
+                    </path>
+                    <path d="M14 19H16V21H14z"></path>
+                    <path d="M10 19H12V21H10z"></path>
+                    <path d="M18 19 18 21 18 22 22 22 22 18 18 18 18 19z"></path>
+                    <path d="M8 3H10V5H8z"></path>
+                    <path d="M12 3H14V5H12z"></path>
+                    <path d="M6 5 6 3 6 2 2 2 2 6 6 6 6 5z"></path>
+                </svg>
+            </div>
+            <div class="flex flex-col py-5 space-y-4 px-4">
+                <div class="flex bg-indigo-800 rounded-lg p-2">
+                    <svg class="text-indigo-400 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                        <path
+                            d="M15 22h4c1.1 0 2-.9 2-2v-9c0-.27-.11-.52-.29-.71l-8-8a.996.996 0 0 0-1.41 0l-8.01 8A1 1 0 0 0 3 11v9c0 1.1.9 2 2 2h4c.55 0 1-.45 1-1v-6h4v6c0 .55.45 1 1 1m-5-9c-1.1 0-2 .9-2 2v5H5v-8.59l7-7 7 7V20h-3v-5c0-1.1-.9-2-2-2z">
+                        </path>
+                    </svg>
+                    <span class="text-gray-400 font-bold">داشبورد</span>
+                </div>
+                <div class="flex px-2">
+                    <svg class="text-indigo-400 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                        <path d="M12 4A2 2 0 1 0 12 8 2 2 0 1 0 12 4z"></path>
+                        <path d="M5 7A2 2 0 1 0 5 11 2 2 0 1 0 5 7z"></path>
+                        <path d="M19 7A2 2 0 1 0 19 11 2 2 0 1 0 19 7z"></path>
+                        <path
+                            d="m19.5,12h-.7c-.84,0-1.61.42-2.08,1.11l-3.26,4.89h-2.93l-3.26-4.89c-.46-.7-1.24-1.11-2.08-1.11h-.7c-1.38,0-2.5,1.12-2.5,2.5v5.5h5v-3.7l1.87,2.81c.37.56.99.89,1.66.89h2.93c.67,0,1.29-.33,1.66-.89l1.87-2.81v3.7h5v-5.5c0-1.38-1.12-2.5-2.5-2.5Z">
+                        </path>
+                        <path
+                            d="m12.39,16l2.61-3.91v-1.59c0-.83-.67-1.5-1.5-1.5h-3c-.83,0-1.5.67-1.5,1.5v1.59l2.61,3.91h.79Z">
+                        </path>
+                    </svg>
+                    <span class="text-gray-400 font-bold">تیم</span>
+                </div>
+                <div class="flex px-2">
+                    <svg class="text-indigo-400 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                        <path
+                            d="m20,4h-8.59l-1.41-1.41c-.38-.38-.88-.59-1.41-.59h-4.59c-1.1,0-2,.9-2,2v14c0,1.1.9,2,2,2h16c1.1,0,2-.9,2-2V6c0-1.1-.9-2-2-2Zm0,14H4s0-12,0-12h16v12Z">
+                        </path>
+                    </svg>
+                    <span class="text-gray-400 font-bold">پروژه ها</span>
+                </div>
+                <div class="flex px-2">
+                    <svg class="text-indigo-400 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                        <path
+                            d="m19,4h-2v-2h-2v2h-6v-2h-2v2h-2c-1.1,0-2,.9-2,2v14c0,1.1.9,2,2,2h14c1.1,0,2-.9,2-2V6c0-1.1-.9-2-2-2ZM5,20v-12h14v-2,14s-14,0-14,0Z">
+                        </path>
+                        <path d="M7 11H9V13H7z"></path>
+                        <path d="M11 11H13V13H11z"></path>
+                        <path d="M15 11H17V13H15z"></path>
+                        <path d="M7 15H9V17H7z"></path>
+                        <path d="M11 15H13V17H11z"></path>
+                        <path d="M15 15H17V17H15z"></path>
+                    </svg>
+                    <span class="text-gray-400 font-bold">تقویم</span>
+                </div>
+                <div class="flex px-2">
+                    <svg class="text-indigo-400 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                        <path
+                            d="M20 10h-1V5c0-.27-.05-.53-.16-.78a2.075 2.075 0 0 0-1.06-1.06c-.25-.1-.51-.16-.78-.16h-2c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1H4c-.27 0-.53.05-.78.16a2.075 2.075 0 0 0-1.06 1.06c-.1.25-.16.51-.16.78v12c0 .27.05.53.16.78a2.075 2.075 0 0 0 1.06 1.06c.25.1.51.16.78.16h6v1c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2M8 4h5v1H8zm2 8v5H4V5h2v1c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5h2v5h-5c-1.1 0-2 .9-2 2m10 8h-8v-8h8z">
+                        </path>
+                    </svg>
+                    <span class="text-gray-400 font-bold">مستندات</span>
+                </div>
+                <div class="flex px-2">
+                    <svg class="text-indigo-400 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                        <path
+                            d="M21 7h-5V3c0-.55-.45-1-1-1H9c-.55 0-1 .45-1 1v8H3c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h18c.55 0 1-.45 1-1V8c0-.55-.45-1-1-1M4 13h4v7H4zm6-1V4h4v16h-4zm10 8h-4V9h4z">
+                        </path>
+                    </svg>
+                    <span class="text-gray-400 font-bold">گزارشات</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="flex flex-col md:pr-64">
+        <!-- navbar -->
+        <div
+            class="flex justify-between items-center h-16 border-b-4 border-b-gray-200 dark:border-b-0 dark:shadow px-4 bg-white dark:bg-gray-700">
+            <button id="sidebar-open-icon" class="md:hidden mr-4 text-gray-500 focus:ring-2 focus:ring-indigo-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                    <path d="M8 11h12v2H8zM12 18h8v-2h-8zM4 6h16v2H4z"></path>
+                </svg>
+            </button>
+            <nav class="w-full">
+                <form class="w-full flex items-center" action="">
+                    <svg class="w-5 mx-3 text-gray-500 dark:text-gray-50 xmlns=" http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                        <path
+                            d="m17.06,14.94l-2.8-1.34c1.08-1.23,1.74-2.84,1.74-4.6,0-3.86-3.14-7-7-7s-7,3.14-7,7,3.14,7,7,7c1.76,0,3.37-.66,4.6-1.74l1.34,2.8h0s5,5,5,5l2.12-2.12-5-5h0Zm-8.06-.94c-2.76,0-5-2.24-5-5s2.24-5,5-5,5,2.24,5,5-2.24,5-5,5Z">
+                        </path>
+                    </svg>
+                    <input class="outline-0 w-full dark:bg-gray-700 dark:text-gray-50" type="text" placeholder="جستجو"
+                        name="" id="">
+                </form>
+            </nav>
+            <div class="flex space-x-4 ml-4 items-center">
+                <svg id="dark-switch" class="cursor-pointer size-6 text-gray-500 dark:text-gray-50" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                </svg>
+                <svg class="h-5 w-auto text-gray-500 dark:text-gray-50" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 24 24">
+                    <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                    <path
+                        d="m19,12.59v-2.59c0-3.22-2.18-5.93-5.14-6.74-.29-.74-1.01-1.26-1.86-1.26s-1.56.52-1.86,1.26c-2.96.82-5.14,3.53-5.14,6.74v2.59l-1.71,1.71c-.19.19-.29.44-.29.71v2c0,.55.45,1,1,1h16c.55,0,1-.45,1-1v-2c0-.27-.11-.52-.29-.71l-1.71-1.71Zm0,3.41H5v-.59l1.71-1.71c.19-.19.29-.44.29-.71v-3c0-2.76,2.24-5,5-5s5,2.24,5,5v3c0,.27.11.52.29.71l1.71,1.71v.59Z">
+                    </path>
+                    <path d="m5.64,3.3l-1.41-1.41C2.14,3.97,1,6.73,1,9.67h2c0-2.4.94-4.66,2.64-6.36Z"></path>
+                    <path d="m18.36,3.3c1.7,1.7,2.64,3.96,2.64,6.36h2c0-2.94-1.14-5.7-3.22-7.78l-1.41,1.41Z"></path>
+                    <path d="m12,22c1.31,0,2.41-.83,2.82-2h-5.64c.41,1.17,1.51,2,2.82,2Z"></path>
+                </svg>
+                <svg class="h-8 w-auto" viewBox="0 0 128 128" data-name="Layer 1" id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <style>
+                            .cls-1,
+                            .cls-12 {
+                                fill: #f85565;
+                            }
+
+                            .cls-15,
+                            .cls-2,
+                            .cls-7 {
+                                fill: #ffffff;
+                            }
+
+                            .cls-2 {
+                                opacity: 0.2;
+                            }
+
+                            .cls-3 {
+                                fill: #4bc190;
+                            }
+
+                            .cls-4,
+                            .cls-6 {
+                                fill: #356cb6;
+                            }
+
+                            .cls-4 {
+                                opacity: 0.3;
+                            }
+
+                            .cls-5 {
+                                fill: #fbc0aa;
+                            }
+
+                            .cls-10,
+                            .cls-11,
+                            .cls-16,
+                            .cls-8 {
+                                fill: none;
+                                stroke-linecap: round;
+                            }
+
+                            .cls-11,
+                            .cls-8 {
+                                stroke: #fbc0aa;
+                            }
+
+                            .cls-10,
+                            .cls-11,
+                            .cls-8 {
+                                stroke-linejoin: round;
+                            }
+
+                            .cls-8 {
+                                stroke-width: 14px;
+                            }
+
+                            .cls-9 {
+                                fill: #ffd8c9;
+                            }
+
+                            .cls-10,
+                            .cls-16 {
+                                stroke: #515570;
+                            }
+
+                            .cls-10 {
+                                stroke-width: 1.89px;
+                            }
+
+                            .cls-10,
+                            .cls-15 {
+                                opacity: 0.4;
+                            }
+
+                            .cls-11 {
+                                stroke-width: 3px;
+                            }
+
+                            .cls-12 {
+                                opacity: 0.1;
+                            }
+
+                            .cls-13 {
+                                fill: #393c54;
+                            }
+
+                            .cls-14 {
+                                fill: #515570;
+                            }
+
+                            .cls-16 {
+                                stroke-miterlimit: 10;
+                                stroke-width: 4px;
+                            }
+                        </style>
+                    </defs>
+                    <title></title>
+                    <circle class="cls-1" cx="64" cy="64" r="60"></circle>
+                    <circle class="cls-2" cx="64" cy="64" r="48"></circle>
+                    <path class="cls-3" d="M89,51.35l12.66,14.82A4,4,0,0,1,98.11,72H75.67l-4-23Z"></path>
+                    <path class="cls-4" d="M89,51.35l12.66,14.82A4,4,0,0,1,98.11,72H75.67l-4-23Z"></path>
+                    <circle class="cls-5" cx="89.84" cy="70.87" r="7.5"></circle>
+                    <path class="cls-6"
+                        d="M64,124a59.75,59.75,0,0,0,37.53-13.2l-2-5.53C98,101.5,93.68,99,88.89,99H39.11c-4.79,0-9.07,2.51-10.68,6.28l-2,5.53A59.75,59.75,0,0,0,64,124Z">
+                    </path>
+                    <path class="cls-7"
+                        d="M74.26,101.86c0,5.66-4.6,9.25-10.26,9.25s-10.26-3.59-10.26-9.25,4.6-3.42,10.26-3.42S74.26,96.19,74.26,101.86Z">
+                    </path>
+                    <line class="cls-8" x1="64" x2="64" y1="88.88" y2="100.88"></line>
+                    <circle class="cls-5" cx="38.16" cy="70.87" r="7.5"></circle>
+                    <path class="cls-9"
+                        d="M64,98A26.78,26.78,0,0,1,37.21,71.19V61.57a26.79,26.79,0,0,1,53.58,0v9.62A26.78,26.78,0,0,1,64,98Z">
+                    </path>
+                    <circle class="cls-3" cx="64" cy="27.38" r="4"></circle>
+                    <circle class="cls-4" cx="64" cy="27.38" r="4"></circle>
+                    <line class="cls-10" x1="74.12" x2="83.21" y1="64.84" y2="64.6"></line>
+                    <line class="cls-10" x1="53.88" x2="44.79" y1="64.84" y2="64.6"></line>
+                    <polyline class="cls-11" points="64 70 64 75 66.36 79.03 61.63 79.03"></polyline>
+                    <ellipse class="cls-12" cx="51.15" cy="78.72" rx="4.34" ry="2.82"></ellipse>
+                    <ellipse class="cls-12" cx="76.85" cy="78.72" rx="4.34" ry="2.82"></ellipse>
+                    <path class="cls-13" d="M71.55,84a1,1,0,0,1,.94,1.07,8.56,8.56,0,0,1-17,0A1,1,0,0,1,56.45,84Z">
+                    </path>
+                    <path class="cls-1"
+                        d="M59,90.91a8.52,8.52,0,0,0,10.08,0C68,89.16,66.17,89,64,89S60,89.16,59,90.91Z">
+                    </path>
+                    <rect class="cls-7" height="2" width="2" x="62" y="84"></rect>
+                    <rect class="cls-7" height="2" width="2" x="65" y="84"></rect>
+                    <circle class="cls-14" cx="76" cy="70.87" r="3"></circle>
+                    <circle class="cls-14" cx="52" cy="70.87" r="3"></circle>
+                    <path class="cls-13"
+                        d="M91.49,60.12V59.4c0-14.95-11.71-27.61-26.66-28A27.51,27.51,0,0,0,36.51,58.82v1.33a2,2,0,0,0,2,2h7.38a6.23,6.23,0,0,0,5.35-3l2.52-4.19s13,0,13,0c4.4,4.34,10,7.18,16.21,7.18h6.44A2,2,0,0,0,91.49,60.12Z">
+                    </path>
+                    <path class="cls-3"
+                        d="M90.92,57a2,2,0,0,0,2-2.15c-1.06-14.82-13-27-28-27.45-15.67-.47-28.68,12.13-29.8,27.46a2,2,0,0,0,2,2.14Z">
+                    </path>
+                    <path class="cls-15"
+                        d="M74,57c.56,0,1-1,1-2.15-.52-14.82-3.29-27-10.57-27.45C56.84,26.93,48.54,39.53,48,54.86,48,56,48.41,57,49,57Z">
+                    </path>
+                    <path class="cls-13" d="M70.67,52c0,5-18.07,5-18.07,0a9,9,0,0,1,18.07,0Z"></path>
+                    <path class="cls-16" d="M66.08,47.92a6,6,0,0,0-4.45-2H51.94"></path>
+                    <path class="cls-3"
+                        d="M48,52H75.5A2.5,2.5,0,0,1,78,54.5v0A2.5,2.5,0,0,1,75.5,57H48a1,1,0,0,1-1-1V53a1,1,0,0,1,1-1Z">
+                    </path>
+                    <path class="cls-4"
+                        d="M48,52H75.5A2.5,2.5,0,0,1,78,54.5v0A2.5,2.5,0,0,1,75.5,57H48a1,1,0,0,1-1-1V53a1,1,0,0,1,1-1Z">
+                    </path>
+                    <circle class="cls-13" cx="74.67" cy="54.5" r="1"></circle>
+                    <circle class="cls-13" cx="70.67" cy="54.5" r="1"></circle>
+                    <circle class="cls-13" cx="66.67" cy="54.5" r="1"></circle>
+                    <circle class="cls-13" cx="62.67" cy="54.5" r="1"></circle>
+                    <circle class="cls-13" cx="58.67" cy="54.5" r="1"></circle>
+                    <circle class="cls-13" cx="54.67" cy="54.5" r="1"></circle>
+                </svg>
+            </div>
+        </div>
+
+        <!-- main -->
+        <main>
+            <div class="p-8 xl:px-36 dark:bg-gray-600 h-[700px]">
+                <div class="max-w-7xl mx-auto">
+                    <span class="font-semibold text-2xl text-gray-900 dark:text-gray-50">داشبورد</span>
+                </div>
+                <div class="max-w-7xl mx-auto py-4">
+                    <div class="border-4 border-dashed border-gray-200 h-96"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+
+        let darkButton = document.getElementById('dark-switch')
+        darkButton.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'light';
+                document.documentElement.classList.remove('dark')
+            } else {
+                localStorage.theme = 'dark';
+                document.documentElement.classList.add('dark')
+            }
+            location.reload();
+
+        })
+
+
+
+        const sidebar = document.getElementById('sidebar'),
+            sidebarOpenIcon = document.getElementById('sidebar-open-icon'),
+            sidebarCloseIcon = document.getElementById('sidebar-close-icon'),
+            overlay = document.getElementById('overlay');
+
+        function openSidebar() {
+            sidebar.classList.add('flex', 'absolute', 'z-50');
+            sidebar.classList.remove('hidden');
+
+            sidebarCloseIcon.classList.remove('hidden');
+            sidebarCloseIcon.classList.add('flex');
+
+            document.body.classList.add('overflow-hidden')
+            overlay.classList.remove('hidden');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('absolute', 'z-50', 'flex', 'flex-row-reverse');
+            sidebar.classList.add('hidden');
+
+            sidebarCloseIcon.classList.add('hidden');
+            sidebarCloseIcon.classList.remove('flex');
+
+            document.body.classList.remove('overflow-hidden')
+
+            overlay.classList.add('hidden')
+        }
+
+        sidebarOpenIcon.addEventListener('click', () => openSidebar())
+        sidebarCloseIcon.addEventListener('click', () => closeSidebar())
+        overlay.addEventListener('click', () => closeSidebar())
+        window.addEventListener('resize', () => closeSidebar())
+
+    </script>
+
+</body>
+
+</html>
